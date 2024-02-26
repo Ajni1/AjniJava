@@ -20,6 +20,42 @@ class Student1 {
         feesPaid += amount;
         System.out.println("Tarifat e paguajtura nga " + name + ":" + amount);
     }
+	/**
+	 * @return the id
+	 */
+	public int getId() {
+		return id;
+	}
+	/**
+	 * @param id the id to set
+	 */
+	public void setId(int id) {
+		this.id = id;
+	}
+	/**
+	 * @return the name
+	 */
+	public String getName() {
+		return name;
+	}
+	/**
+	 * @param name the name to set
+	 */
+	public void setName(String name) {
+		this.name = name;
+	}
+	/**
+	 * @return the feesPaid
+	 */
+	public double getFeesPaid() {
+		return feesPaid;
+	}
+	/**
+	 * @param feesPaid the feesPaid to set
+	 */
+	public void setFeesPaid(double feesPaid) {
+		this.feesPaid = feesPaid;
+	}
 
 
 }
