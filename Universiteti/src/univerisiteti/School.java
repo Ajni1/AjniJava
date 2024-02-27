@@ -1,3 +1,4 @@
+package univerisiteti;
 import java.util.List;
 /**
 * Create a class School that should include the following information as instance
@@ -12,7 +13,7 @@ variables:
 
 	public class School {
 
-		private List<Student1>  student;
+		private List<Student>  student;
 		private List<Teacher> teacher;
 		private double totalMoneyEarned;
 		private double totalMoneySpend;
@@ -20,7 +21,7 @@ variables:
 
 		public School() {
 		}
-		public School(List<Student1>  student,List<Teacher> teacher,double totalMoneyEarned,double totalMoneySpend) {
+		public School(List<Student>  student,List<Teacher> teacher,double totalMoneyEarned,double totalMoneySpend) {
 			this.student=student;
 			this.teacher=teacher;
 			this.totalMoneyEarned=totalMoneyEarned;
@@ -32,7 +33,7 @@ variables:
 	    }
 		public void addStudent(Student1 student) {
 			student.add(student);
-			System.out.println("Studenti"+ student.getName() + );
+			System.out.println("Studenti"+ student.getName() );
 		}
 	}
 

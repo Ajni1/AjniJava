@@ -12,9 +12,12 @@
 /PredatoryCreditCard.class
 /Punonjes.class
 /Rreth.class
+/School.class
 /Staf.class
 /Status.class
 /Student.class
+/Student1.class
+/Teacher.class
 /TestCreditCard.class
 /TestFakulteti.class
 /TestObjektGjeometrik.class
@@ -23,7 +26,4 @@
 /ThrowExample.class
 /Trekendesh.class
 /TrekendeshTest.class
-/Teacher.class
-/Student1.class
 /Subject.class
-/School.class

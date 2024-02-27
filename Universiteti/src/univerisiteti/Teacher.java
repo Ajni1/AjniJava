@@ -1,3 +1,7 @@
+package univerisiteti;
+import java.util.ArrayList;
+import java.util.List;
+
 /**
 * Create a class called Teacher that represents a teacher of school.
 * A Teacher should have the following information as instance variables:
@@ -10,15 +14,16 @@ public class Teacher {
  private int id;
 private String name;
 private double salary;
-//konstruktori pa parametra i klases Teacher
-public Teacher() {
-	
-}
+//Lista e Id se mesuesve duhet te mbaje vlera unike
+ static final List<Integer> TEACHERIDLIST= new ArrayList<>();
+
+
 //konstruktori me parametra
-public Teacher(int id,String name,double salary) {
-	this.id = id;
-	this.name = name;
-	this.salary = salary;
+public Teacher(int id,String name,double salary) throws Exception {
+	setId(id);
+	setName(name);
+	setSalary(salary);
+	
 }
 /**
  * @return the id
@@ -28,8 +33,14 @@ public int getId() {
 }
 /**
  * @param id the id to set
+ * @throws Exception 
  */
-public void setId(int id) {
+public void setId(int id) throws Exception {
+	if(id<=0) throw new IllegalArgumentException("Error,negative id");
+	if(TEACHERIDLIST.contains(id)) throw new IllegalArgumentException("Erorr,id" + id +" ekziston");
+	else {
+		TEACHERIDLIST.add(id);
+	}
 	this.id = id;
 }
 /**
@@ -52,13 +63,19 @@ public double getSalary() {
 }
 /**
  * @param salary the salary to set
+ * @throw IllegalArumentException when salary<0
  */
 public void setSalary(double salary) {
+	if(salary<0) throw new IllegalArgumentException("Error,nenegative salary");
 	this.salary = salary;
 }
-public void add(Teacher teacher) {
+@Override
+public String toString() {
 	// TODO Auto-generated method stub
+	return 	String.format("Id: %d\nName:%s\nSalary:%.2f",id,name,salary);
+}
+
 	
 }
 
-}
+
