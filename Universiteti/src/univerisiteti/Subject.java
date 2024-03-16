@@ -1,84 +1,94 @@
 package univerisiteti;
+
 import java.util.ArrayList;
 import java.util.List;
 
 /**
-* Create a class called Subject to represent a student of school.
-* A Subject should have the following information as instance variables:
+* Creates a Subject to represent a subject of school.
+* A subject has the following information as instance variables:
 * id – unique – type int
 * name – type String
-* teacher – type Teacher
-* student list - List<Student> A subject is followed by many students
+* teacher – type Teacher A subject is taught by a teacher
+* student list - List<Student>  A subject is followed by many students
 */
 public class Subject {
+private static final List<Integer> SUBJECTIDLIST = new ArrayList<>();
 private Integer id;
 private String name;
 private Teacher teacher;
-static final List<Integer> SUBJECTIDLIST= new ArrayList<>();
-private List<Student1>studentList= new ArrayList<>();
- public Subject(Integer id,String name) {
-	 setId(id);
-     setName(name);
- }
+private List<Student> studentList = new ArrayList<>();
+
+public Subject(Integer id, String name,	Teacher teacher) {
+
+	setId(id);
+	setName(name);
+}
+
 /**
  * @return the id
  */
 public Integer getId() {
 	return id;
 }
+
 /**
  * @param id the id to set
  */
 public void setId(Integer id) {
-	if(id<=0) throw new IllegalArgumentException("error,Id is negative");
-	if(SUBJECTIDLIST.contains(id)) throw new IllegalArgumentException("Error,Id"+id+"exists");
+	if(id<=0) throw new IllegalArgumentException("Error, negative ID!");
+	if(SUBJECTIDLIST.contains(id))
+		throw new IllegalArgumentException("Error, subject id " +id + " exists");
 	else {
 		SUBJECTIDLIST.add(id);
+		this.id = id;
 	}
-	this.id = id;
 }
+
 /**
  * @return the name
  */
 public String getName() {
 	return name;
 }
+
 /**
  * @param name the name to set
  */
 public void setName(String name) {
 	this.name = name;
 }
+
 /**
  * @return the teacher
  */
 public Teacher getTeacher() {
 	return teacher;
 }
+
 /**
  * @param teacher the teacher to set
  */
 public void setTeacher(Teacher teacher) {
 	this.teacher = teacher;
 }
- public void addStudent(Integer student) {
-	 if(Student1.STUDENTIDLIST.contains(student.getId()));
-	 Teacher studentList = null;
-	 ((List<Integer>) studentList).add(student);
- }
- public List<Student1> getStudents() {
-	 return studentList;
- }
+
+public void addStudent(Student student) {
+	if(!Student.STUDENTIDLIST.contains(student.getId()))
+		studentList.add(student);
+}
+/** Get students of the subject */
+public List<Student> getStudents() { return studentList;}
+
 @Override
 public String toString() {
-	String output = String.format("Subject id:%d\nTeacher:",id,name,
-			getTeacher().getName());
-	
-	// TODO Auto-generated method stub
-	
-	for (Student1 student :getStudents())
-		output +="ID"+student.getId()+",Name:"+student.getName()+"\n";
-		return output += "Subject followed by:\n";
+	String output = String.format("Subject id: %d\n Name: %s\n Teacher: %s\n", id, name,
+			getTeacher().getName()
+			);
+	output += "Subject followed by: \n";
+	for(Student student: getStudents())
+		output += "ID: " + student.getId() + ", Name:" + student.getName()+"\n";
+
+	return output;
 }
- 
+
 }
